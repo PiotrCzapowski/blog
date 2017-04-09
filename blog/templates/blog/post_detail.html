@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% load static%}
+
+{% block content %}
+    <h2>{{post.title}}</h2>
+    <p>ilosć wejść: {{post.visitors_counter}}</p>
+    <p class="date">{{post.publish}}</p>
+    <img src="{{post.image.url}}" class="img-responsive">
+    {{post.text|linebreaks}}
+{%endblock%}
+{%block side%}
+    <ul>
+        {%for post in post_list%}
+        <li>
+         <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+        </li>
+        {%endfor%}
+    </ul>
+{%endblock%}

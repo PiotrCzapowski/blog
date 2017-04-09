@@ -1,10 +1,38 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blog</title>
-    
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js "></script>
 </head>
 <body>
-
+    <div id="top">
+        <h1 id="slider">SLAJDER</h1>
+    </div>
+    <div>
+        <div id="left-side" class="main-content">
+            <p>O mnie</p>
+         </div>
+            <div id="content" class="main-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+      <script>
+        $(document).ready(function(){
+          {% block domready %}
+          {% endblock %}
+           });
+      </script>
+      <div id="sidebar" class="main-content">
+        <h2>Mój blog</h2>
+        <p>To jest mój blog.</p>
+        {%block side%}
+        {%endblock%}
+      </div>
+    </div>
 </body>
 </html>
